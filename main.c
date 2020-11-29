@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 	allocate_fail(set.words, set.count); //free
 	// close & free
 	if (mode != 4)
-		system(ft_strjoin("./a.out ", myname));
+		system(ft_strjoin("./start ", myname));
 	/* TEST
 	printf("%d\n", set.count);
 	for(int i = 0; i < set.count; i++)

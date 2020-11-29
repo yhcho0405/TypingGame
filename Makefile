@@ -1,10 +1,10 @@
 all:
-	gcc main.c util.c game.c file.c list.c typing.h
+	gcc -o start main.c util.c game.c file.c list.c
 
 clean:
-	rm -rf *.o a.out typing.h.gch
+	rm -rf *.o start typing.h.gch
 
 re: clean all
 
 test:
-	make re && ./a.out
+	make re && ./start
