@@ -79,6 +79,7 @@ void game(t_set *set, t_usr **usr, char *myname)
 	if (!(vfork())) /* child process */
 		game_timer(timeset[mode - 1], pid);
 
-	printf("\n==== timeover ====\n");
+	printf("\n==== Timeover ====\nPress Enter : ");
+	getchar();
 	sleep(2);
 }
