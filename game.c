@@ -81,5 +81,5 @@ void game(t_set *set, t_usr **usr, char *myname)
 
 	printf("\n==== Timeover ====\nPress Enter : ");
 	getchar();
-	sleep(2);
+	sleep(1);
 }
