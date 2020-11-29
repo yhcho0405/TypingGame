@@ -30,8 +30,9 @@ void	delete_user(t_usr **usr, char *myname)
 		{
 			if (!(ft_strncmp(tmp->name, buf, BUFF_MAX)))
 			{
-				tmp->score = -99999;
+				tmp->score = -999;
 				flag = 1;
+				break;
 			}
 			tmp = tmp->next;
 		}
