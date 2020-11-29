@@ -10,7 +10,6 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <time.h>
-#include <curses.h>
 
 # define BUFF_MAX				10000
 

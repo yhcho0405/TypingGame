@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 	t_usr	*usr;
 	char	*myname;
 
-	parsing(&set, "wordset");
+	parsing(&set, "db/wordset");
 	if (argc == 2)
 		mode = main_init(&usr, &argv[1], &myname, 1);
 	else

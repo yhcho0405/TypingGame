@@ -5,7 +5,7 @@ void	delete_user(t_usr **usr, char *myname)
 	t_usr	*tmp = *usr;
 	int		i = 0;
 	int		cnt;
-	char	buf[1000];
+	char	buf[BUFF_MAX];
 	int		flag = 0;
 
 	printf("╔═════════ User List ══════════╗\n");
@@ -22,13 +22,13 @@ void	delete_user(t_usr **usr, char *myname)
 	printf("╚══════════════════════════════╝\nDelete user name : ");
 	scanf("%s", buf);
 	tmp = *usr;
-	if (!(ft_strncmp(myname, buf, 10000)))
+	if (!(ft_strncmp(myname, buf, BUFF_MAX)))
 		printf("\ncan't delete myself\n"), sleep(2);
 	else
 	{
 		while (tmp)
 		{
-			if (!(ft_strncmp(tmp->name, buf, 10000)))
+			if (!(ft_strncmp(tmp->name, buf, BUFF_MAX)))
 			{
 				tmp->score = -99999;
 				flag = 1;
@@ -50,7 +50,7 @@ void    write_idtable(t_usr **usr)
 	t_usr	*tmp = *usr;
 	int		fd;
 
-	if (!(fd = open("idtable", O_WRONLY | O_TRUNC)))
+	if (!(fd = open("db/idtable", O_WRONLY | O_TRUNC)))
 	{
 		printf("file open error");
 		exit(0);
@@ -74,7 +74,7 @@ char    *check_dup_and_add(t_usr **usr, char *name)
 
 	while (tmp)
 	{
-		if (!(ft_strncmp(tmp->name, name, 100000)))
+		if (!(ft_strncmp(tmp->name, name, BUFF_MAX)))
 			return name;
 		tmp = tmp->next;
 	}
@@ -89,7 +89,7 @@ void	update_score(char *name, t_usr **usr, int score)
 
 	while (tmp)
 	{
-		if (!(ft_strncmp(tmp->name, name, 100000)))
+		if (!(ft_strncmp(tmp->name, name, BUFF_MAX)))
 			tmp->score = score;
 		tmp = tmp->next;
 	}
@@ -127,7 +127,7 @@ void    show_score(t_usr **usr)
 char    *user_id_init(t_usr **usr, char **myname, int flag)
 {
 	int		fd;
-	char	buffer[10000];
+	char	buffer[BUFF_MAX];
 	char	**user;
 	size_t	users;
 	char	*buf;
@@ -136,16 +136,16 @@ char    *user_id_init(t_usr **usr, char **myname, int flag)
 		buf = *myname;
 	else
 	{
-		buf = malloc(1000);
+		buf = malloc(BUFF_MAX);
 		printf("Username : ");
 		scanf("%s", buf);
 	}
-	if ((fd = open("idtable", O_RDWR | O_CREAT)) < 0)
+	if ((fd = open("db/idtable", O_RDWR | O_CREAT)) < 0)
 	{
 		printf("file open error");
 		exit(0);
 	}
-	int cnt = read(fd, buffer, 10000); close(fd);
+	int cnt = read(fd, buffer, BUFF_MAX); close(fd);
 	if (cnt >= 3)
 	{
 		user = split(buffer, '/');
@@ -155,7 +155,6 @@ char    *user_id_init(t_usr **usr, char **myname, int flag)
 		{
 			tmp = split(user[i], '@');
 			ft_lstadd_back(usr, ft_lstnew(ft_strtrim(tmp[0], " "), ft_atoi(tmp[1])));
-			// tmp[0]:공백기준 이름, tmp[1]:점수, 이 ft_lstnew를 usr에 추가한다
 			allocate_fail(tmp, 2); //free
 		}
 		ft_lstsort(usr);
