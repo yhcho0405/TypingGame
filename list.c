@@ -71,12 +71,15 @@ void	ft_lstsort(t_usr **lst)
 			}
 			ttmp = ttmp->next;
 		}
-		itmp = tmp->score;
-		ctmp = tmp->name;
-		tmp->score = maxi;
-		tmp->name = maxc;
-		tttmp->score = itmp;
-		tttmp->name = ctmp;
+		if (maxi != -1)
+		{
+			itmp = tmp->score;
+			ctmp = tmp->name;
+			tmp->score = maxi;
+			tmp->name = maxc;
+			tttmp->score = itmp;
+			tttmp->name = ctmp;
+		}
 		tmp = tmp->next;
 	}
 }
