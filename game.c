@@ -10,6 +10,7 @@ void game_timer(int sec, pid_t pid)
 
 	t = time(NULL);
 	while (time(NULL) - t < sec) {
+		//progress bar
 	}
 	kill(pid, SIGINT);
 	exit(0);

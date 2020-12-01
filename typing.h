@@ -13,8 +13,8 @@
 
 # define BUFF_MAX				10000
 
-# define SELECT_MODE_STR		"╔════════ Select Mode ════════╗\n║        Game Mode : 1        ║\n║       Ranking Page : 2      ║\n║       Delete User : 3       ║\n║           Exit : 4          ║\n╚═════════════════════════════╝\nMode : "
-# define SELECT_GAME_MODE_STR	"╔════════ Select Mode ════════╗\n║        Easy Mode : 1        ║\n║       Normal Mode : 2       ║\n║        Hard Mode : 3        ║\n╚═════════════════════════════╝\nMode : "
+# define SELECT_MODE_STR		"╔════════ Select Mode ════════╗\n║        Game Mode : 1        ║\n║       Ranking Page : 2      ║\n║       Delete User : 3       ║\n║          Log Out : 4        ║\n╚═════════════════════════════╝\nMode : "
+# define SELECT_GAME_MODE_STR	"╔════════ Select Mode ════════╗\n║           Easy : 1          ║\n║          Normal : 2         ║\n║           Hard : 3          ║\n╚═════════════════════════════╝\nMode : "
 
 typedef struct		s_usr
 {

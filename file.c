@@ -108,13 +108,14 @@ void    show_score(t_usr **usr)
 	printf("║                              ║\n");
 	while (tmp)
 	{
-		cnt = 6;
+		cnt = 0;
 		cnt += ft_strlen(tmp->name);
 		char *fre;
 		cnt += ft_strlen((fre = ft_itoa(tmp->score))); free(fre);
-		printf("║%d. %s [%d]", ++i, tmp->name, tmp->score);
-		for (int i = cnt; i < 30; i++)
-			printf(" ");
+		printf("║%d. %s ", ++i, tmp->name);
+		int i; for (i = cnt; i < 23; i++) printf("-");
+		printf(" %d ", tmp->score);
+		while (++i < 25) printf(" ");
 		printf("║\n");
 		tmp = tmp->next;
 	}

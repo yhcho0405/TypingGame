@@ -41,25 +41,32 @@ int main(int argc, char **argv)
 	char	*myname;
 
 	parsing(&set, "db/wordset");
-	if (argc == 2)
-		mode = main_init(&usr, &argv[1], &myname, 1);
-	else
-		mode = main_init(&usr, &myname, &myname, 0);
+	if (argc == 2) mode = main_init(&usr, &argv[1], &myname, 1);
+	else mode = main_init(&usr, &myname, &myname, 0);
 	system("clear");
 	if (mode == 1) game(&set, &usr, myname);
 	else if (mode == 2) show_score(&usr);
 	else if (mode == 3) delete_user(&usr, myname);
-	free_all(&usr); //free
-	allocate_fail(set.words, set.count); //free
-	// close & free
-	if (mode != 4)
-		system(ft_strjoin("./start ", myname));
-	/* TEST
-	printf("%d\n", set.count);
-	for(int i = 0; i < set.count; i++)
-		printf("%s\n", set.words[i]);
-	*/
+	free_all(&usr);
+	allocate_fail(set.words, set.count);
+	if (mode != 4) system(ft_strjoin("./start ", myname));
+	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 ------------------------------
